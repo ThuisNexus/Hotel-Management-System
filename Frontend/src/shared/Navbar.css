@@ -1,0 +1,114 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.navbar-user {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    list-style: none;
+    
+}
+
+.navbar-links ul li {
+    margin: 0 1rem;
+}
+
+.navbar-links a {
+    text-decoration: none;
+    color: #666;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.navbar-links span{
+    text-decoration: none;
+    color: #666;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.navbar-links button {
+    background-color: #939624; 
+    color: #fff;
+    border: none;
+    padding: 4px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.navbar-links a:hover {
+    color: #000;
+}
+
+.navbar-links a:focus {
+    color: #000;
+}
+
+.navbar-user a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.8rem;
+    transition: color 0.3s;
+    border: thin solid #939624;
+    background-color: #939624;
+    border-radius: 2px;
+    padding: 0.5rem 0.7rem;
+
+}
+
+.navbar-user li {
+    list-style: none;
+}
+
+.navbar-user button {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.8rem;
+    transition: color 0.3s;
+    border: thin solid #939624;
+    background-color: #939624;
+    border-radius: 2px;
+    padding: 0.5rem 0.7rem;
+}
+
+.navbar-user .profile-link {
+    margin-top: 0.4rem;
+    margin-bottom: 0;
+}
+
+.navbar-user .profile-link a{
+    text-decoration: none;
+    color: #666;
+    font-size: 1rem;
+    transition: color 0.3s;
+    border: none;
+    background-color: #fff;
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.navbar-user .profile-link a:hover {
+    color: #000;
+}
+
+.navbar-user .profile-link  button{
+    margin-top: 1rem;
+}

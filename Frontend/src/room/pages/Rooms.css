@@ -1,0 +1,17 @@
+.rooms {
+  padding: 1.5rem;
+  margin: 0;
+}
+
+.rooms-header h1, .rooms-header p{
+  margin: 0.5rem;
+}
+
+.rooms-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+

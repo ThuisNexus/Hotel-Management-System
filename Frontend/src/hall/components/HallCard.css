@@ -1,0 +1,52 @@
+.hall-card {
+    background-color: #f4f4f4;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    width: 24rem;
+    margin-bottom:  1rem;
+    margin-right: 0.5rem;
+    box-sizing: border-box; 
+}
+
+.hall-card:hover {
+    transform: scale(1.03);
+}
+
+.hall-info {
+    margin: 0px;
+    float:left;
+    display: flex;
+    flex-direction: column;
+}
+
+.hall-card img {
+    height: 14rem;
+    object-fit: cover;
+}
+
+.hall-info h2 {
+    font-size: 1.1rem;
+}
+
+.hall-info p {
+    margin: 0.3rem;
+}
+
+.hall-info button {
+    background-color: #939624; 
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.hall-info button:hover {
+    background-color: #686b19;
+}

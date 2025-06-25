@@ -1,0 +1,133 @@
+.upper-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.main-info {
+    width: 40%;
+    padding: 1rem;
+    padding-top: 0;
+}
+
+.title {
+    margin-left: 2.3rem;
+}
+
+ul {
+    padding: 0;
+    margin-left: 1rem;
+    font-family: 'Georgia', serif;
+    font-size: 0.75rem;
+}
+
+.images-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    object-fit: cover;
+}
+
+.second-image, .third-image {
+    width: 48%;
+    height: 100%;
+    margin: 0;
+    border-radius: 4px;
+}
+
+.first-image {
+    width: 100%;
+    height: 70%;
+    margin: 0.3rem;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.two-images {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+    object-fit: cover;
+}
+
+.booking-container {
+    width: 30rem;
+    margin: 1rem auto;
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.booking-container h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.booking-inputs {
+    margin-top: 3rem;
+}
+
+.date-inputs {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.date-inputs div {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+label {
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 0.3rem;
+}
+
+.date-inputs input[type="date"],
+select {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.guests-input {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.booking-button {
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #939624;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.booking-button:hover {
+    background-color: #686b19;
+}
+
+.price-breakdown,
+.total-price {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    margin: 0.5rem 0;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 1rem 0;
+}

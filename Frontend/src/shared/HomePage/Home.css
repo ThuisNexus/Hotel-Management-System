@@ -1,0 +1,88 @@
+.container {
+    text-align: center;
+    ;
+}
+  
+.header-section {
+    background-image: url('../../assets/mainPhoto2.png'); 
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    color: #fff;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    
+}
+
+.header-titles {
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 6rem;
+    margin-top: 6rem;
+}
+
+.header-titles p {
+    font-size: 1.5rem;
+    margin-top: 0rem;
+}
+
+.header-titles h1, .header-titles p {
+    margin: 0.3rem;
+}
+
+.hotel-description {
+    text-align: justify;
+    padding: 0.4rem;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: #333;
+    background-color: #f9f9f9; 
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; 
+    margin: 2rem auto;
+}
+
+h2 
+{
+    font-size: 1.8rem;
+    margin-bottom: 0rem;
+    float: left;
+}
+
+.description-section {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem; 
+}
+
+.description-section p {
+    padding: 0 12px 12px 0;
+}
+
+.rooms {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.rooms h2 {
+    float: left;
+}
+
+.room-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    flex-wrap: wrap;
+}
