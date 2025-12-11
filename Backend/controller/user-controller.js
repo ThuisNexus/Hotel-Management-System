@@ -12,8 +12,6 @@ const register = async (req, res, next) => {
     }
 
     try {
-        console.log("Received data:", { name, email, password, phoneNumber });
-
         const existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.status(409).json({ message: 'An account with this email already exists.' });
