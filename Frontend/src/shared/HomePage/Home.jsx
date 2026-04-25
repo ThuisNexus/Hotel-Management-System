@@ -13,7 +13,7 @@ function Home() {
     <div className="container">
       <section className="header-section">
         <div className="header-titles">
-            <h1 >Grand Wailea Resort on Maui</h1>
+            <h1 >The White House Resort </h1>
             <p>Your Dream Destination is here</p>
         </div>
         <Searchbar></Searchbar>
