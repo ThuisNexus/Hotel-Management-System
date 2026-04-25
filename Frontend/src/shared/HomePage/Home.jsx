@@ -19,7 +19,7 @@ function Home() {
         <Searchbar></Searchbar>
       </section>
       <section className="hotel-description">
-        <h2>Grand Wailea Resort</h2>
+        <h2>Grand vegas Resort</h2>
         <div  className="description-section">
             <p>Discover a retreat shaped by nature and culture at Grand Wailea. Fronted by Wailea Beach and surrounded by 40 acres of lush tropical landscape, our newly enhanced resort features redesigned accommodations, award-winning cuisine, Hawaiʻi’s largest private art collection, healing spa treatments and more.
             Our entire collection of rooms and suites have been refreshed and revamped. Any accommodation you choose features luxurious new designs and finishings, including our exclusive and private Napua rooms and suites for enjoyment.
