@@ -14,7 +14,7 @@ function Home() {
       <section className="header-section">
         <div className="header-titles">
             <h1 >Grand Wailea Resort on Maui</h1>
-            <p>Your perfect getaway awaits!</p>
+            <p>Your Dream Destination is here</p>
         </div>
         <Searchbar></Searchbar>
       </section>

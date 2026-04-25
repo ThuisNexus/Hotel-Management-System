@@ -1,147 +1,65 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import './PaymentForm.css';
 import { CartContext } from '../context/CartContext';
 
-const PaymentForm = ({ totalAmount }) => {
-  const stripe = useStripe();
-  const elements = useElements();
-  const [name, setName] = useState('');
-  const [error, setError] = useState(null);
-  
+const PaymentForm = () => {
   const { cart, calculateTotal, setCart } = useContext(CartContext);
+  const navigate = useNavigate();
 
   const userId = localStorage.getItem('uid');
 
-  const navigate = useNavigate();
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    if (!stripe || !elements) {
-      return;
-    }
-
-    const cardElement = elements.getElement(CardElement);
-
+  const handleFakeCheckout = async () => {
     try {
       if (!cart || cart.length === 0) {
         alert('Your cart is empty.');
         return;
       }
 
+      const rooms = cart.map((item) => ({
+        roomId: item.roomId,
+        name: item.name,
+        price: item.price,
+        startDate: item?.dates?.startDate,
+        endDate: item?.dates?.endDate,
+      }));
 
-      const rooms = cart.map((item) => {
-        if (!item.dates || !item.dates.startDate || !item.dates.endDate) {
-          throw new Error(`Missing dates for room: ${item.name}`);
-        }
-        return {
-          roomId: item.roomId,
-          name: item.name,
-          price: item.price,
-          startDate: item.dates.startDate,
-          endDate: item.dates.endDate,
-        };
-      });
+      console.log("Simulated rooms:", rooms);
 
-      console.log('Rooms data:', rooms);
+      // 🔥 Fake success (no Stripe)
+      alert('Payment successful (simulated)!');
 
-      if (!totalAmount || isNaN(totalAmount)) {
-        console.error('Total amount is invalid:', totalAmount);
-        return;
-    }
+      // clear cart
+      setCart([]);
+      localStorage.removeItem('cart');
 
-      const response = await fetch('/cart/checkout', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json',
-                      Authorization: `Bearer ${localStorage.getItem('token')}`
-           },
-          body: JSON.stringify({
-              amount: totalAmount * 100,
-              currency: 'eur',
-              userId: localStorage.getItem('uid'),
-              rooms,
-              totalPrice: calculateTotal(),
-          }),
-      });
+      // navigate
+      navigate(`/reservations/user/${userId}`);
 
-      if (!response.ok) {
-        const error = await response.json();
-        console.error('Checkout failed:', error);
-        alert(`Error: ${error.message || 'Something went wrong'}`);
-        return;
-    }
-
-      const { clientSecret } = await response.json();
-
-      const { error } = await stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-          card: cardElement,
-          billing_details: { name },
-        },
-      });
-
-      if (error) {
-        setError(error.message);
-      } else {
-        alert('Payment successful!');
-
-        setCart([]);
-          localStorage.removeItem('cart');
-          navigate(`/reservations/user/${userId}`);
-      }
     } catch (err) {
-      setError(err.message);
+      console.error(err);
+      alert("Something went wrong");
     }
   };
 
   return (
     <div className="payment-form-container">
-      <h2>Payment Details</h2>
-      <form onSubmit={handleSubmit} className="payment-form">
-        <label htmlFor="cardholder-name">Cardholder Name</label>
-        <input
-          type="text"
-          id="cardholder-name"
-          placeholder="Enter cardholder name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
+      <h2>Payment Disabled (Demo Mode)</h2>
 
-        <label htmlFor="card-element">Card Details</label>
-        <div className="card-element-wrapper">
-          <CardElement
-            id="card-element"
-            options={{
-              style: {
-                base: {
-                  fontSize: '16px',
-                  color: '#32325d',
-                  '::placeholder': {
-                    color: '#a0aec0',
-                  },
-                },
-                invalid: {
-                  color: '#fa755a',
-                },
-              },
-            }}
-          />
-        </div>
+      <p style={{ marginBottom: "20px" }}>
+        This project is running without payment integration.
+      </p>
 
-        {error && <div className="error-message">{error}</div>}
-
-        <button type="submit" className="pay-button" disabled={!stripe}>
-          Confirm and Pay
+      <div className="payment-form">
+        <button 
+          onClick={handleFakeCheckout} 
+          className="pay-button"
+        >
+          Simulate Payment
         </button>
-      </form>
+      </div>
     </div>
   );
 };
 
 export default PaymentForm;
-
-
-

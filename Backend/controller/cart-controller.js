@@ -9,9 +9,14 @@ const Payment = require('../models/payment');
 const Reservation = require('../models/reservation');
 const HttpError = require('../models/http-error');
 
-const Stripe = require('stripe');
+let stripe = null;
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+if (process.env.STRIPE_SECRET_KEY) {
+    const Stripe = require('stripe');
+    stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+} else {
+    console.log("⚠️ Stripe disabled (no API key provided)");
+}
 
 const verifyToken = (req) => {
     try {
@@ -135,7 +140,13 @@ const handleCheckout = async (req, res, next) => {
             return res.status(400).json({ message: 'Invalid input data' });
         }
 
-        const paymentIntent = await stripe.paymentIntents.create({
+      if (!stripe) {
+    return res.status(200).json({
+        message: "Checkout disabled (Stripe not configured)",
+    });
+}
+
+const paymentIntent = await stripe.paymentIntents.create({
             amount,
             currency: 'eur',
         });
