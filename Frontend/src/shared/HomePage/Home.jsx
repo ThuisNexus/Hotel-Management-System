@@ -31,7 +31,7 @@ function Home() {
         <h2>Our Rooms</h2>
         <div className="room-cards">
             <RoomCard 
-                image={deluxeOcean}
+                image={UltradeluxeOcean}
                 title={"Deluxe Ocean View - 1 King Bed"}
                 price="300">
             </RoomCard>
